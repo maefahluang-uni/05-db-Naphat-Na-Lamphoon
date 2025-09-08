@@ -8,14 +8,30 @@ import javax.persistence.Id;
 import javax.persistence.GenerationType;
 
 
+@Entity
 public class User {
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String email;
     private String displayname;
     private LocalDate birthday;
+
+    public User() {
+        
+    }
+
+    public User(String username, String email, String displayname, LocalDate birthday) {
+        this.username = username;
+        this.email = email;
+        this.displayname = displayname;
+        this.birthday = birthday;
+        
+    }
+
     public String getUsername() {
         return username;
     }
@@ -45,8 +61,6 @@ public class User {
     }
     public void setId(Long id) {
         this.id = id;
-    }
-    
-    
+    }      
     
 }
